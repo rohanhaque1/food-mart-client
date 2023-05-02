@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { Bars4Icon, XCircleIcon } from "@heroicons/react/24/solid";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+
+  const {user} = useContext(AuthContext)
 
   return (
     <>
@@ -74,6 +77,7 @@ const Navbar = () => {
         </nav>
 
         <div className="w-12 rounded-full">
+          <p>{user.displayName}</p>
           <img src="/public/vite.svg" />
         </div>
       </div>

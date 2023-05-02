@@ -86,7 +86,7 @@ const Footer = () => {
                 <div className="flex justify-start space-x-3">
                   <a
                     title="Facebook"
-                    className="flex items-center p-1"
+                    className="flex items-center p-1 text-blue-400"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +101,7 @@ const Footer = () => {
                     rel="noopener noreferrer"
                     href="#"
                     title="Twitter"
-                    className="flex items-center p-1"
+                    className="flex items-center p-1 text-blue-400"
                   >
                     <svg
                       viewBox="0 0 24 24"
@@ -115,7 +115,7 @@ const Footer = () => {
                     rel="noopener noreferrer"
                     href="#"
                     title="Instagram"
-                    className="flex items-center p-1"
+                    className="flex items-center p-1 text-pink-600"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
