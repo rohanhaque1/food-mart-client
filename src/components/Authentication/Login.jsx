@@ -1,10 +1,32 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Login = () => {
+  const { signInUser } = useContext(AuthContext);
+
+  const handleLogin = event => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password)
+
+    signInUser(email, password)
+      .then(result => {
+        const loggedInUser = result.user;
+        console.log(loggedInUser)
+      })
+      .catch(error => {
+      console.log(error)
+    })
+  }
     return (
       <div>
-        <form className="max-w-md mx-auto my-6 bg-white p-8 shadow-md rounded-md">
+        <form
+          onSubmit={handleLogin}
+          className="max-w-md mx-auto my-6 bg-white p-8 shadow-md rounded-md"
+        >
           <h2 className="text-4xl font-bold mb-4 text-center">Please Login</h2>
 
           <div className="mb-4">
@@ -18,8 +40,8 @@ const Login = () => {
               className="border border-gray-400 p-2 w-full rounded-md"
               id="email"
               name="email"
-                        type="email"
-                        placeholder="Your Email"
+              type="email"
+              placeholder="Your Email"
               required
             />
           </div>
@@ -34,8 +56,8 @@ const Login = () => {
               className="border border-gray-400 p-2 w-full rounded-md"
               id="password"
               name="password"
-                        type="password"
-                        placeholder="Your Password"
+              type="password"
+              placeholder="Your Password"
               required
             />
           </div>
