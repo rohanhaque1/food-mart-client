@@ -59,7 +59,7 @@ const Login = () => {
         onSubmit={handleLogin}
         className="max-w-md mx-auto my-6 bg-white p-8 shadow-md rounded-md"
       >
-        <h2 className="text-4xl font-bold mb-4 text-center">Please Login</h2>
+        <h2 className="text-4xl font-bold mb-4 text-center">Login</h2>
 
         <div className="mb-4">
           <label className="block text-gray-700 font-bold mb-2" htmlFor="email">

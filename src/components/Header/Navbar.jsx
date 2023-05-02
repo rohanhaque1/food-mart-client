@@ -6,7 +6,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
-  // const {user} = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
 
   return (
     <>
@@ -28,54 +28,61 @@ const Navbar = () => {
         </div>
 
         <nav>
-          <ul
+          <div
             className={`md:flex gap-8 font-semibold absolute md:static duration-500 ${
               open ? "left-14 top-20" : "-left-48 top-20"
             }`}
           >
-            <li>
-              <NavLink
-                to="/"
-                className={({ isActive, isPending }) =>
-                  isActive ? "text-emerald-600" : isPending ? "pending" : ""
-                }
-              >
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/blogs"
-                className={({ isActive, isPending }) =>
-                  isActive ? "text-emerald-600" : isPending ? "pending" : ""
-                }
-              >
-                Blogs
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/login"
-                className={({ isActive, isPending }) =>
-                  isActive ? "text-emerald-600" : isPending ? "pending" : ""
-                }
-              >
-                Login
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/register"
-                className={({ isActive, isPending }) =>
-                  isActive ? "text-emerald-600" : isPending ? "pending" : ""
-                }
-              >
-                Register
-              </NavLink>
-            </li>
-          </ul>
+            <NavLink
+              to="/"
+              className={({ isActive, isPending }) =>
+                isActive ? "text-emerald-600" : isPending ? "pending" : ""
+              }
+            >
+              Home
+            </NavLink>
+
+            <NavLink
+              to="/blogs"
+              className={({ isActive, isPending }) =>
+                isActive ? "text-emerald-600" : isPending ? "pending" : ""
+              }
+            >
+              Blogs
+            </NavLink>
+
+            <NavLink
+              to="/register"
+              className={({ isActive, isPending }) =>
+                isActive ? "text-emerald-600" : isPending ? "pending" : ""
+              }
+            >
+              Register
+            </NavLink>
+          </div>
         </nav>
 
+        <div>
+          {user ? (
+            <>
+              <NavLink
+                to="/"
+                className="bg-emerald-400 px-3 py-2 rounded-lg text-white font-semibold"
+              >
+                Log out
+              </NavLink>
+            </>
+          ) : (
+            <NavLink
+              to="/login"
+              className={({ isActive, isPending }) =>
+                isActive ? "text-emerald-600" : isPending ? "pending" : ""
+              }
+            >
+              Login
+            </NavLink>
+          )}
+        </div>
         <div className="w-12 rounded-full">
           {/* <p>{user.displayName}</p> */}
           <img src="/public/vite.svg" />
