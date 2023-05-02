@@ -42,7 +42,7 @@ const Navbar = () => {
             </li>
             <li>
               <NavLink
-                to="/dashboard"
+                to="/blogs"
                 className={({ isActive, isPending }) =>
                   isActive ? "text-emerald-600" : isPending ? "pending" : ""
                 }
