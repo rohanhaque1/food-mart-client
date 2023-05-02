@@ -67,7 +67,7 @@ const Navbar = () => {
                   isActive ? "text-emerald-600" : isPending ? "pending" : ""
                 }
               >
-                Sign Up
+                Register
               </NavLink>
             </li>
           </ul>
