@@ -6,7 +6,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
-  const {user} = useContext(AuthContext)
+  // const {user} = useContext(AuthContext)
 
   return (
     <>
@@ -77,7 +77,7 @@ const Navbar = () => {
         </nav>
 
         <div className="w-12 rounded-full">
-          <p>{user.displayName}</p>
+          {/* <p>{user.displayName}</p> */}
           <img src="/public/vite.svg" />
         </div>
       </div>

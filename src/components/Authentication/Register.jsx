@@ -1,10 +1,31 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext)
+
+  const handleRegister = event => {
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const photo = form.photo.value;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    createUser(email, password)
+      .then(result => {
+        const createdUser = result.user;
+        console.log(createdUser)
+      })
+      .catch(error => {
+      console.log(error)
+    })
+  }
     return (
       <div>
         <form
+          onSubmit={handleRegister}
           className="max-w-md mx-auto my-6 bg-white p-8 shadow-md rounded-md"
         >
           <h2 className="text-4xl font-bold mb-4 text-center">
@@ -77,11 +98,16 @@ const Register = () => {
 
           <button className="bg-blue-500 hover:bg-blue-600   rounded w-full bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 text-white font-bold py-2 px-4">
             Register
-                </button>
-                
-                <div className="my-3">
-                    <p className="text-gray-400 font-semibold">Already have an Account ? <Link to="/login" className="text-emerald-600 font-bold">Login</Link></p>
-                </div>
+          </button>
+
+          <div className="my-3">
+            <p className="text-gray-400 font-semibold">
+              Already have an Account ?{" "}
+              <Link to="/login" className="text-emerald-600 font-bold">
+                Login
+              </Link>
+            </p>
+          </div>
         </form>
       </div>
     );
