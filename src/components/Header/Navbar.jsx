@@ -75,17 +75,17 @@ const Navbar = () => {
           ) : (
             <NavLink
               to="/login"
-              className={({ isActive, isPending }) =>
-                isActive ? "text-emerald-600" : isPending ? "pending" : ""
-              }
+              className="bg-emerald-400 px-3 py-2 rounded-lg text-white font-semibold"
             >
               Login
             </NavLink>
           )}
         </div>
         <div className="w-12 rounded-full">
-          {/* <p>{user.displayName}</p> */}
-          <img src="/public/vite.svg" />
+          <img
+            className="rounded-full"
+            src="https://e7.pngegg.com/pngimages/442/17/png-clipart-computer-icons-user-profile-male-user-heroes-head.png"
+          />
         </div>
       </div>
     </>
