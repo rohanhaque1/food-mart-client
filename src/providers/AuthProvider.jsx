@@ -18,12 +18,6 @@ const AuthProvider = ({ children }) => {
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    // const userProfile = (user) => {
-    //     return updateProfile(auth.user, {
-    //         displayName: name.displayName, photoURL: photo.photoURL
-    //     })
-    // }
-
     const googleSignIn = () => {
         return signInWithPopup(auth, googleProvider);
     }
@@ -34,7 +28,6 @@ const AuthProvider = ({ children }) => {
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
-            // console.log('auth state change', currentUser)
             setUser(currentUser);
         });
 
