@@ -6,7 +6,17 @@ import { AuthContext } from "../../providers/AuthProvider";
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
-  const { user } = useContext(AuthContext);
+  const { user, signOutUser } = useContext(AuthContext);
+
+  const handleSignOut = () => {
+    signOutUser()
+      .then((result) => {
+        const logOut = result.user;
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+  };
 
   return (
     <>
@@ -65,12 +75,12 @@ const Navbar = () => {
         <div>
           {user ? (
             <>
-              <NavLink
-                to="/"
+              <button
+                onClick={handleSignOut}
                 className="bg-emerald-400 px-3 py-2 rounded-lg text-white font-semibold"
               >
                 Log out
-              </NavLink>
+              </button>
             </>
           ) : (
             <NavLink
