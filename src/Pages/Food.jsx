@@ -6,7 +6,7 @@ const Food = ({ food }) => {
       <>
         <div className="card bg-white shadow-xl">
           <figure>
-            <img src={picture} alt="food" className="h-96" />
+            <img src={picture} alt="food" className="h-96 w-full" />
           </figure>
           <div className="card-body">
             <h2 className="card-title font-bold">

@@ -13,7 +13,7 @@ const Chefs = () => {
   return (
     <>
       <section className="px-8 md:px-20 py-14 mx-auto">
-        <div className="text-center space-y-3 my-4 w-2/5 mx-auto">
+        <div className="text-center space-y-3 my-4 md:w-2/5 mx-auto">
           <h2 className="text-3xl font-bold">Our Chef's</h2>
           <p className="text-md font-semibold text-gray-500 mb-5">
             A good chef is someone who is dedicated to their craft, constantly
@@ -21,7 +21,7 @@ const Chefs = () => {
             dining experience for their customers.
           </p>
         </div>
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {chefs.map((chef) => (
             <ChefsCard key={chef.id} chef={chef}></ChefsCard>
           ))}
