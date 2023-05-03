@@ -22,6 +22,15 @@ const Register = () => {
       return;
     }
 
+    // userProfile(name, photo)
+    //   .then(result => {
+    //     const userName = result.user;
+    //     console.log(userName)
+    //   })
+    //   .catch(error => {
+    //   console.log(error)
+    // })
+
     createUser(email, password)
       .then((result) => {
         const createdUser = result.user;
