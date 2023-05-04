@@ -11,6 +11,7 @@ const Login = () => {
 
   const { signInUser, googleSignIn, githubSignIn } = useContext(AuthContext);
 
+  // signin with email and password
   const handleLogin = (event) => {
     event.preventDefault();
     setSuccess("");
@@ -33,6 +34,7 @@ const Login = () => {
       });
   };
 
+  // Google signin
   const handleGoogleSignIn = () => {
     googleSignIn()
       .then((result) => {
@@ -45,6 +47,7 @@ const Login = () => {
       });
   };
 
+  // Github signin
   const handleGithubSignIn = () => {
     githubSignIn()
       .then((result) => {

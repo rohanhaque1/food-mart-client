@@ -23,6 +23,7 @@ const Register = () => {
     }
     
     setError("");
+    // created user
     createUser(email, password)
       .then((result) => {
         const createdUser = result.user;

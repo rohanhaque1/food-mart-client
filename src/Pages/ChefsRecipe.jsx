@@ -43,6 +43,7 @@ const ChefsRecipe = () => {
           </div>
         </div>
 
+        {/* some recipe from chef */}
         <div className="border-2 border-rose-800 p-8 rounded-lg space-y-4">
           <h2 className="text-xl text-center font-bold text-rose-800">
             Chef's Special Recipe

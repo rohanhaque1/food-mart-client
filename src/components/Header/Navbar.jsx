@@ -1,19 +1,24 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Bars4Icon, XCircleIcon, UserCircleIcon } from "@heroicons/react/24/solid";
+import {
+  Bars4Icon,
+  XCircleIcon,
+  UserCircleIcon,
+} from "@heroicons/react/24/solid";
 import { AuthContext } from "../../providers/AuthProvider";
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const { user, signOutUser } = useContext(AuthContext);
-  
+  // console.log(user?.displayName);
 
   const handleSignOut = () => {
     signOutUser()
-      .then(() => {
-      })
+      .then(() => {})
       .catch((error) => {
         setError(error.message);
       });
@@ -93,7 +98,16 @@ const Navbar = () => {
           )}
         </div>
         <div className="w-12 rounded-full">
-          {user && <UserCircleIcon className="h-9 w-9" />}
+          {user && (
+            <>
+              <UserCircleIcon
+                data-tooltip-id="my-tooltip"
+                data-tooltip-content="Hello world!"
+                className="h-9 w-9"
+              />
+              <Tooltip id="my-tooltip" />
+            </>
+          )}
         </div>
       </div>
     </>
