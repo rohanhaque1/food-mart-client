@@ -1,20 +1,21 @@
 import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { Bars4Icon, XCircleIcon } from "@heroicons/react/24/solid";
+import { Bars4Icon, XCircleIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const [error, setError] = useState('');
 
   const { user, signOutUser } = useContext(AuthContext);
+  
 
   const handleSignOut = () => {
     signOutUser()
-      .then((result) => {
-        const logOut = result.user;
+      .then(() => {
       })
       .catch((error) => {
-        console.log(error.message);
+        setError(error.message);
       });
   };
 
@@ -92,10 +93,7 @@ const Navbar = () => {
           )}
         </div>
         <div className="w-12 rounded-full">
-          <img
-            className="rounded-full"
-            src="https://e7.pngegg.com/pngimages/442/17/png-clipart-computer-icons-user-profile-male-user-heroes-head.png"
-          />
+          {user && <UserCircleIcon className="h-9 w-9" />}
         </div>
       </div>
     </>

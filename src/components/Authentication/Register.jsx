@@ -21,14 +21,14 @@ const Register = () => {
       setError("Password Should be at least 6 characters");
       return;
     }
-
+    
+    setError("");
     createUser(email, password)
       .then((result) => {
         const createdUser = result.user;
         console.log(createdUser);
-        setError("");
         setSuccess("User has been created successfully");
-        form.reset();
+        form.reset("");
         handleProfile(name, photo);
       })
       .catch((error) => {
@@ -39,7 +39,7 @@ const Register = () => {
   const handleProfile = (name, photoURL) => {
     const profile = {
       displayName: name,
-      photoURL: photoURL,
+      photoURL: photoURL
     };
     profileUpdate(profile)
       .then(() => {})
