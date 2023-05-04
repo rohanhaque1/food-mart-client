@@ -1,5 +1,6 @@
 import React from "react";
 import { useLoaderData } from "react-router-dom";
+import Recipe from "./Recipe";
 
 const ChefsRecipe = () => {
   const details = useLoaderData();
@@ -16,9 +17,9 @@ const ChefsRecipe = () => {
   } = details;
   return (
     <>
-      <section className="md:flex justify-between items-center gap-6 md:px-20 py-8">
+      <section className="md:px-12 py-8">
         <div>
-          <div className="p-5 mx-auto sm:p-10 md:p-16">
+          <div className="p-5 mx-auto sm:p-10 md:p-14">
             <div className="flex flex-col max-w-xl mx-auto overflow-hidden rounded-lg">
               <img
                 src={chefPicture}
@@ -42,10 +43,15 @@ const ChefsRecipe = () => {
           </div>
         </div>
 
-        <div className="border-2 border-rose-800 p-8 rounded-lg">
-          <h2 className="text-xl font-bold text-rose-800">
+        <div className="border-2 border-rose-800 p-8 rounded-lg space-y-4">
+          <h2 className="text-xl text-center font-bold text-rose-800">
             Chef's Special Recipe
           </h2>
+          <div className="grid md:grid-cols-2 gap-6">
+            {details.recipes.map((recipe) => (
+              <Recipe key={recipe.id} recipe={recipe}></Recipe>
+            ))}
+          </div>
         </div>
       </section>
     </>
