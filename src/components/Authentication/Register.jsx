@@ -5,7 +5,7 @@ import { AuthContext } from "../../providers/AuthProvider";
 const Register = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
-  const { createUser } = useContext(AuthContext);
+  const { createUser, profileUpdate } = useContext(AuthContext);
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -29,9 +29,23 @@ const Register = () => {
         setError("");
         setSuccess("User has been created successfully");
         form.reset();
+        handleProfile(name, photo);
       })
       .catch((error) => {
         setError(error.message);
+      });
+  };
+
+  const handleProfile = (name, photoURL) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoURL,
+    };
+    profileUpdate(profile)
+      .then(() => {})
+      .catch((error) => {
+        setError(error.message);
+        console.log(error.message);
       });
   };
   return (
@@ -40,7 +54,9 @@ const Register = () => {
         onSubmit={handleRegister}
         className="max-w-md mx-auto my-6 bg-white p-8 shadow-md rounded-md"
       >
-        <h2 className="text-4xl font-bold mb-4 text-center">Create a New User</h2>
+        <h2 className="text-4xl font-bold mb-4 text-center">
+          Create a New User
+        </h2>
         <div className="mb-4">
           <label
             className="block text-gray-700 font-bold mb-2"
