@@ -5,7 +5,7 @@ const OurFoods = () => {
   const [foods, setFoods] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/foods")
+    fetch("https://food-recipe-server-rohanhaque1.vercel.app/foods")
       .then((res) => res.json())
       .then((data) => setFoods(data));
   }, []);
