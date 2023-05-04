@@ -14,7 +14,6 @@ const Navbar = () => {
   const [error, setError] = useState("");
 
   const { user, signOutUser } = useContext(AuthContext);
-  // console.log(user?.displayName);
 
   const handleSignOut = () => {
     signOutUser()
@@ -99,14 +98,13 @@ const Navbar = () => {
         </div>
         <div className="w-12 rounded-full">
           {user && (
-            <>
-              <UserCircleIcon
-                data-tooltip-id="my-tooltip"
-                data-tooltip-content="Hello world!"
-                className="h-9 w-9"
+            <div className="bg-neutral-focus text-neutral-content rounded-full w-12">
+              <img
+                className="cursor-pointer w-12 h-12 rounded-full"
+                title={user.displayName}
+                src={user?.photoURL}
               />
-              <Tooltip id="my-tooltip" />
-            </>
+            </div>
           )}
         </div>
       </div>
