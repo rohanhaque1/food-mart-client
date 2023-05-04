@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { BookmarkIcon } from "@heroicons/react/24/solid";
+import toast, { Toaster } from "react-hot-toast";
 
 const Recipe = ({ recipe }) => {
   const { cookingMethod, img, ingredients, ratings, recipeName } = recipe;
+  const [isDisabled, setIsDisabled] = useState(false);
+
+  const handleBookmark = () => {
+    console.log("clicked")
+    setIsDisabled(true);
+    toast("Showing the recipe is your favorite..!");
+  }
   return (
     <>
       <div className="card card-side bg-white shadow-xl">
@@ -31,7 +39,12 @@ const Recipe = ({ recipe }) => {
               Rating : <strong>{ratings}</strong>
             </p>
             <p>
-              <BookmarkIcon className="h-8 w-8" />
+              <BookmarkIcon
+                onClick={handleBookmark}
+                disabled={isDisabled}
+                className={isDisabled ? 'text-gray-500 h-8 w-8' : 'text-rose-400 h-8 w-8'}
+              />
+              <Toaster />
             </p>
           </div>
         </div>

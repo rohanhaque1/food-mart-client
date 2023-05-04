@@ -27,7 +27,6 @@ const Register = () => {
     createUser(email, password)
       .then((result) => {
         const createdUser = result.user;
-        console.log(createdUser);
         setSuccess("User has been created successfully");
         form.reset("");
         handleProfile(name, photo);
@@ -46,7 +45,6 @@ const Register = () => {
       .then(() => {})
       .catch((error) => {
         setError(error.message);
-        console.log(error.message);
       });
   };
   return (
