@@ -1,16 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import LazyLoad from "react-lazy-load";
 
 const ChefsCard = ({ chef }) => {
   const { id, chefName, chefPicture, experience, numRecipes, likes } = chef;
   return (
     <>
       <div className="md:max-w-xs rounded-lg shadow-lg bg-white">
-        <img
-          src={chefPicture}
-          alt=""
-          className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500"
-        />
+        <LazyLoad threshold={0.95}>
+          <img
+            src={chefPicture}
+            alt=""
+            className="object-cover object-center w-full rounded-t-md h-72 dark:bg-gray-500"
+          />
+        </LazyLoad>
         <div className="flex flex-col justify-between p-6 space-y-8">
           <div className="space-y-2">
             <h3 className="text-2xl font-bold">{chefName}</h3>
