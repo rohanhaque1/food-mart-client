@@ -1,6 +1,6 @@
 ## Live Link
 
-Hosted in surge -> [FoodMart](https://envious-things.surge.sh/)
+Hosted in surge -> [FoodMart](https://food-recipe-client-5a145.web.app/)
 
 ## Github Repo
 
