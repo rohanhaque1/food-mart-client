@@ -27,6 +27,7 @@ const Login = () => {
         navigate(from, {replace: true})
         setSuccess("Login Successful..!!");
         form.reset();
+        navigate(from, {replace: true})
       })
       .catch((error) => {
         setError(error.message);
@@ -39,6 +40,7 @@ const Login = () => {
       .then((result) => {
         const googleLogin = result.user;
         setError("");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error.message);
@@ -51,6 +53,7 @@ const Login = () => {
       .then((result) => {
         const githubLogin = result.user;
         setError("");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         setError(error.message);
