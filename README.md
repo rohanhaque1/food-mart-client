@@ -1,10 +1,12 @@
 ## Live Link
 
-Hosted in Firebase -> [FoodMart]()
+Hosted in surge -> [FoodMart](https://envious-things.surge.sh/)
 
 ## Github Repo
 
-github link -> [FoodMart](https://github.com/programming-hero-web-course-4/b7a10-chef-recipe-hunter-client-side-rohanhaque1)
+client side github link -> [FoodMart](https://github.com/programming-hero-web-course-4/b7a10-chef-recipe-hunter-client-side-rohanhaque1)
+
+server side github link -> [FoodMart](https://github.com/programming-hero-web-course-4/b7a10-chef-recipe-hunter-server-side-rohanhaque1)
 
 
 ## Acknowledgements
